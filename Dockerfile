@@ -7,7 +7,7 @@ FROM debian:stretch-slim
 # Install Dart.
 ENV DART_VERSION=2.0.0-dev.26.0
 RUN apt-get update
-RUN apt-get install -y unzip curl
+RUN apt-get install -y unzip curl git
 
 #https://storage.googleapis.com/dart-archive/channels/dev/release/2.0.0-dev.12.0/sdk/dartsdk-linux-x64-release.zip
 #curl -O https://storage.googleapis.com/dart-archive/channels/stable/release/${DART_VERSION}/sdk/dartsdk-linux-x64-release.zip && \
