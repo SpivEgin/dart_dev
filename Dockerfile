@@ -1,17 +1,17 @@
 #
-# ActiveFlyers Dartlang base
+# LegionMarket Dartlang base
 
 # Pull base image.
 FROM debian:stretch-slim
 
 # Install Dart.
-ENV DART_VERSION=2.0.0-dev.26.0
+ENV DART_VERSION=2.0.0-dev.48.0
 RUN apt-get update
 RUN apt-get install -y unzip curl git
 
 #https://storage.googleapis.com/dart-archive/channels/dev/release/2.0.0-dev.12.0/sdk/dartsdk-linux-x64-release.zip
 #curl -O https://storage.googleapis.com/dart-archive/channels/stable/release/${DART_VERSION}/sdk/dartsdk-linux-x64-release.zip && \
-RUN apt-get -y clean
+RUN apt-get -y autoclean
 # Set environment variables.
 RUN mkdir /opt/dart /opt/dart/code /opt/dart/data /opt/dart/bin /opt/dartlang
 RUN cd /opt/dartlang/ && \
