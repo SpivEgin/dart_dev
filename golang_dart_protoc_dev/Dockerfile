@@ -1,13 +1,15 @@
 FROM quay.io/spivegin/golang_dart_dev
 
 RUN mkdir /opt/protoc/
-ENV PROTOC=3.5.1 \
-    GRPCPROTO=/opt/protoc/bin/ \
-    DARTPATH=/opt/dartlang/dart-sdk/bin \
-    DARTPUB=~/.pub-cache/ \
-    GOPATH=/opt/src/ \
-    GOROOT=/opt/go/ \
-    GOBIN=/opt/go/bin/ 
+ENV PROTOC=3.5.1 
+
+RUN export GRPCPROTO=/opt/protoc/bin/ &&\
+    export DARTPATH=/opt/dartlang/dart-sdk/bin &&\
+    export DARTPUB=~/.pub-cache/ &&\
+    export GOPATH=/opt/src/ &&\
+    export GOROOT=/opt/go/ &&\
+    export GOBIN=/opt/go/bin/ 
+
 
 ADD https://github.com/google/protobuf/releases/download/v${PROTOC}/protoc-${PROTOC}-linux-x86_64.zip /opt/protoc/
 
@@ -19,5 +21,4 @@ RUN export PATH=$GRPCPROTO:$GOBIN:$GOPATH:$GOROOT:DARTPUB:DARTPATH:$PATH &&\
     cd /opt/protoc/ && unzip protoc-${PROTOC}-linux-x86_64.zip && cd ~ && \
     pub global activate protoc_plugin
 
-RUN rm ~/.bashrc &&\
-    echo export PATH=$GRPCPROTO:$GOBIN:$GOPATH:$GOROOT:DARTPUB:DARTPATH:$PATH >> ~/.bashrc  
+RUN echo export PATH=$GRPCPROTO:$GOBIN:$GOPATH:$GOROOT:DARTPUB:DARTPATH:$PATH > ~/.bashrc  
