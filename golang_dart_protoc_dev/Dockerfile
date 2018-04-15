@@ -9,5 +9,7 @@ RUN go get -u google.golang.org/grpc && \
     cd /opt/protoc/ && unzip protoc-${PROTOC}-linux-x86_64.zip && cd ~ && \
     export GRPCPROTO=/opt/protoc/bin/ && \
     export PATH=$PATH:$GRPCPROTO && \
+    export PATH=$PATH:~/.pub-cache/bin &&\
+    # echo "export PATH=$PATH:~/.pub-cache/bin" >> /root/.bashrc && \
     pub global activate protoc_plugin
 
