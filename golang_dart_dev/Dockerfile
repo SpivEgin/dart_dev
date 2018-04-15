@@ -10,5 +10,4 @@ RUN tar -C /opt/go/go/ -xzf /opt/tmp/go${GO_VERSION}.linux-amd64.tar.gz &&\
     export PATH=$PATH:$GOBIN:$GOPATH:$GOROOT &&\
     rm /opt/tmp/go${GO_VERSION}.linux-amd64.tar.gz
 
-ENV GOPATH=/opt/src/
 WORKDIR /opt/src/
