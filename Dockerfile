@@ -17,9 +17,11 @@ RUN mkdir /opt/dart /opt/dart/code /opt/dart/data /opt/dart/bin /opt/dartlang
 RUN cd /opt/dartlang/ && \
     curl -O https://storage.googleapis.com/dart-archive/channels/dev/release/${DART_VERSION}/sdk/dartsdk-linux-x64-release.zip && \
     unzip dartsdk-linux-x64-release.zip && \
-    rm dartsdk-linux-x64-release.zip
+    rm dartsdk-linux-x64-release.zip && \
+    mkdir ~/.pub-cache/ ~/.pub-cache/bin
     
-ENV DARTPATH=~/.pub-cache/bin:/opt/dartlang/dart-sdk/bin
+ENV DARTPATH=/opt/dartlang/dart-sdk/bin \
+    DARTPUB=~/.pub-cache/
 
 RUN echo export PATH=$DARTPATH:$PATH >> ~/.bashrc    
 
