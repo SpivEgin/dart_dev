@@ -1,7 +1,7 @@
 FROM quay.io/spivegin/dart_dev:latest
 
 ENV GO_VERSION=1.10
-RUN mkdir /opt/golang /opt/tmp /opt/src /opt/go 
+RUN mkdir /opt/golang /opt/tmp /opt/src /opt/go /opt/go/go
 ADD https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz /opt/tmp/
 RUN tar -C /opt/go/go/ -xzf /opt/tmp/go${GO_VERSION}.linux-amd64.tar.gz &&\
     export GOPATH=/opt/src/ &&\
