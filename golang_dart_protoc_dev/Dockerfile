@@ -7,6 +7,7 @@ ADD https://github.com/google/protobuf/releases/download/v${PROTOC}/protoc-${PRO
 RUN go get -u google.golang.org/grpc && \
     go get -u github.com/golang/protobuf/protoc-gen-go && \
     cd /opt/protoc/ && unzip protoc-${PROTOC}-linux-x86_64.zip && cd ~ && \
-    echo "export PATH=$PATH:~/.pub-cache/bin" >> /root/.bashrc && \
+    export GRPCPROTO=/opt/protoc/bin/ &&\
+    export PATH=$PATH:$GRPCPROTO &&/
     pub global activate protoc_plugin
 
