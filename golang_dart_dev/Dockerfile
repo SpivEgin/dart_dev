@@ -8,11 +8,9 @@ ADD https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz /op
 
 RUN tar -C /opt/ -xzf /opt/tmp/go${GO_VERSION}.linux-amd64.tar.gz &&\
     rm /opt/tmp/go${GO_VERSION}.linux-amd64.tar.gz
-RUN echo $PATH    
-RUN echo export PATH=$GOBIN:$GOPATH:$GOROOT:$PATH > ~/.bashrc    
+
+ADD files/config.sh /opt/config/config_golang.sh
+RUN chmod +x /opt/config/config_golang.sh &&\
+    bash /opt/config/config_golang.sh
+    
 WORKDIR /opt/src/
-
-
-    # export GOPATH=/opt/src/ && \
-    # export GOROOT=/opt/go/ && \
-    # export GOBIN=/opt/go/bin/ 
