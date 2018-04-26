@@ -6,9 +6,10 @@ FROM debian:stretch-slim
 
 # Install Dart.
 ENV DART_VERSION=2.0.0-dev.48.0
-RUN apt-get update
-RUN apt-get install -y unzip wget git
-RUN apt-get -y autoclean
+RUN apt-get update &&\
+    apt-get install -y unzip wget git build-essential &&\
+    apt-get -y autoclean &&\
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Set environment variables.
 RUN mkdir /opt/dart /opt/dart/code /opt/dart/data /opt/dart/bin /opt/dartlang /opt/config
