@@ -1,6 +1,6 @@
 FROM quay.io/spivegin/dart_dev:latest
 
-ENV GO_VERSION=1.10
+ENV GO_VERSION=1.10.1
 
 RUN mkdir /opt/golang /opt/tmp /opt/src /opt/go
 
