@@ -26,7 +26,7 @@ RUN cd /opt/dartlang/ && \
 
 ENV DARTPATH=/opt/dartlang/dart-sdk/bin \
 	DARTPUB=~/.pub-cache \
-	PATH=$DARTPATH:$DARTPUB:$PATH
+    PATH=$DARTPATH:$DARTPUB:$HOME/.pub-cache/bin:$PATH
 	
 RUN echo export PATH=$DARTPATH:$DARTPUB:$PATH > ~/.bashrc    
 # Define working directory.
