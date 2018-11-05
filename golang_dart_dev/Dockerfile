@@ -17,7 +17,9 @@ ENV DARTPATH=/opt/dartlang/dart-sdk/bin \
 	DARTPUB=~/.pub-cache \
 	GOPATH=/opt/src/ \
 	GOROOT=/opt/go/ \
-	GOBIN=/opt/go/bin/ 
+	GOBIN=/opt/go/bin/ \
+	PATH=$DARTPATH:$DARTPUB:$GOBIN:$GOPATH:$GOROOT:$PATH 
+	
 RUN export PATH=$DARTPATH:$DARTPUB:$GOBIN:$GOPATH:$GOROOT:$PATH &&\
 	echo export GOBIN=${GOBIN} > ~/.bashrc &&\
 	echo export GOPATH=${GOPATH} >> ~/.bashrc &&\ 
