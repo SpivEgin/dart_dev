@@ -20,10 +20,14 @@ RUN cd /opt/dartlang/ && \
     unzip dartsdk-linux-x64-release.zip && \
     rm dartsdk-linux-x64-release.zip
 
+#ADD files/config.sh /opt/config/config_dart.sh
+#RUN chmod +x /opt/config/config_dart.sh &&\
+#    bash /opt/config/config_dart.sh 
+
 ENV DARTPATH=/opt/dartlang/dart-sdk/bin \
-		DARTPUB=~/.pub-cache \
-		PATH=$DARTPATH:$DARTPUB:$PATH
-		
+	DARTPUB=~/.pub-cache \
+	PATH=$DARTPATH:$DARTPUB:$PATH
+	
 RUN echo export PATH=$DARTPATH:$DARTPUB:$PATH > ~/.bashrc    
 # Define working directory.
 WORKDIR /opt/dart/code
