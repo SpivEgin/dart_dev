@@ -1,7 +1,8 @@
 FROM quay.io/spivegin/dart_dev:latest
 
 ENV GO_VERSION=1.11.1 \
-    GLIDE_VERSION=0.13.2
+    GLIDE_VERSION=0.13.2 \
+	DEP_VERSION=0.5.0
 
 RUN mkdir /opt/golang /opt/tmp /opt/src /opt/go
 
@@ -28,9 +29,11 @@ RUN export PATH=$DARTPATH:$DARTPUB:$GOBIN:$GOPATH:$GOROOT:$PATH &&\
 	echo export PATH=$DARTPATH:$DARTPUB:$GOBIN:$GOPATH:$GOROOT:$PATH >> ~/.bashrc
 
 ADD https://github.com/Masterminds/glide/releases/download/v${GLIDE_VERSION}/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz /opt/tmp
-RUN tar -C /opt/go/bin/ -xzf /opt/tmp/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz &&\
+ADD https://github.com/golang/dep/releases/download/v${DEP_VERSION}/dep-linux-amd64 ${GOBIN}/dep
+RUN chmod +x ${GOBIN}/dep &&\
+	tar -C /opt/go/bin/ -xzf /opt/tmp/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz &&\
     mv /opt/go/bin/linux-amd64/glide /opt/go/bin/ && rm -rf /opt/go/bin/linux-amd64 &&\
-    chmod +x /opt/go/bin/glide &&\
+	chmod +x /opt/go/bin/glide &&\
     rm /opt/tmp/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz &&\
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 WORKDIR /opt/src/
