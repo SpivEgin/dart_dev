@@ -1,1 +1,1 @@
-git add -A && git commit -m "up dart and go version" && git push
+git add -A && git commit -m "upped dart and go version" && git push
