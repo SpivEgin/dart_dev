@@ -1,6 +1,6 @@
 FROM quay.io/spivegin/dart_dev:latest
 
-ENV GO_VERSION=1.11.1 \
+ENV GO_VERSION=1.11.2 \
     GLIDE_VERSION=0.13.2 \
 	DEP_VERSION=0.5.0
 
