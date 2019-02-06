@@ -1,12 +1,8 @@
 FROM quay.io/spivegin/dart_dev:latest
 
-<<<<<<< HEAD
-ENV GO_VERSION=1.11.5
-=======
-ENV GO_VERSION=1.11.2 \
+ENV GO_VERSION=1.11.5 \
     GLIDE_VERSION=0.13.2 \
 	DEP_VERSION=0.5.0
->>>>>>> 9335c1475923b62c7b109ec29780ebb2c90c7bf4
 
 RUN mkdir /opt/golang /opt/tmp /opt/src /opt/go
 
