@@ -1,3 +1,3 @@
 git add -A 
-git commit -m "removed bash files"
+git commit -m "updated hooks"
 git push
