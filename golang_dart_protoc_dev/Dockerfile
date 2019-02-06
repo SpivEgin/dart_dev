@@ -1,7 +1,7 @@
 FROM quay.io/spivegin/golang_dart_dev
 
 RUN mkdir /opt/protoc/
-ENV PROTOC=3.5.1 
+ENV PROTOC=3.6.1 
 
 RUN export GRPCPROTO=/opt/protoc/bin/ &&\
     export DARTPATH=/opt/dartlang/dart-sdk/bin &&\
