@@ -1,1 +1,3 @@
-git add -A && git commit -m "upped dart and go version v00" && git push
+git add -A 
+git commit -m "removed bash files"
+git push
