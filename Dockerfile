@@ -6,7 +6,7 @@ FROM debian:stretch-slim
 
 # Install Dart.
 ENV DART_VERSION=2.2.1-dev.1.0
-RUN apt-get update &&\
+RUN apt-get update && apt-get -y upgrade &&\
     apt-get install -y unzip wget git build-essential &&\
     apt-get -y autoclean &&\
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
